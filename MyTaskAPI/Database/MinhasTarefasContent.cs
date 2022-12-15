@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MyTaskAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyTaskAPI.Database
 {
-    public class MinhasTarefasContent : DbContext
+    public class MinhasTarefasContent : IdentityDbContext<ApplicationUser>
     {
         public MinhasTarefasContent(DbContextOptions<MinhasTarefasContent> options) : base(options)
         {
@@ -16,3 +17,4 @@ namespace MyTaskAPI.Database
         public DbSet<Tarefa> Tarefas {get;set;}
     }
 }
+
